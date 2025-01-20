@@ -3,12 +3,14 @@ var cors = require("cors")
 var { createServer } = require("http")
 var { Server } = require("socket.io")
 var fs = require("fs")
+var os = require("os");
+var hostname = os.hostname();
 
 var app = express()
 var httpServer = createServer(app)
 var io = new Server(httpServer, {
   cors: {
-    origin: "https://zulkarneynyavas.github.io",
+    origin: hostname == "DESKTOP-GQ24O9O" ? "http://localhost:3000" : "https://zulkarneynyavas.github.io",
     allowedHeaders: ["my-custom-header"],
     credentials: true
   }
@@ -39,7 +41,7 @@ var array = [],
 
 io.on("connection", socket => {
 
-  console.log(io.sockets.adapter.rooms)
+  // console.log(io.sockets.adapter.rooms)
 
   // socket.on("send", function (data) {
     // if (io.sockets.connected[idsnicks[data.usr]] !== undefined) {
@@ -155,7 +157,7 @@ io.on("connection", socket => {
       // clearTimeout(t)
 
       path.forEach(function (p, i) {
-        console.log(i);
+        // console.log(i);
         
         t = setTimeout(function () {
           // console.log(p)
