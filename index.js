@@ -8,7 +8,7 @@ var app = express()
 var httpServer = createServer(app)
 var io = new Server(httpServer, {
   cors: {
-    origin: "https://zulkarneynyavas.github.io/",
+    origin: "185.199.108.153",
     allowedHeaders: ["my-custom-header"],
     credentials: true
   }
